@@ -10,6 +10,23 @@ Rails.application.configure do
   # Rake tasks automatically ignore this option for performance.
   config.eager_load = true
 
+  # ActionMailer::Base.default_url_options = {host: 'localhost', port: 3000}
+
+  ActionMailer::Base.delivery_method = :smtp
+  ActionMailer::Base.smtp_settings = {
+      address: 'smtp.yandex.ru',
+      port: 587,
+      domain: 'nikkie.ru',
+      user_name: 'warlord@nikkie.ru',
+      password: 'Slayer123',
+      authentication: 'plain',
+      enable_starttls_auto: true
+  }
+
+  ActionMailer::Base.default_url_options = { host: 'http://localhost:3000' }
+  ActionMailer::Base.perform_deliveries = true
+  ActionMailer::Base.raise_delivery_errors = true
+
   # Full error reports are disabled and caching is turned on.
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
@@ -80,7 +97,7 @@ Rails.application.configure do
   # require 'syslog/logger'
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new 'app-name')
 
-  if ENV["RAILS_LOG_TO_STDOUT"].present?
+  if ENV['RAILS_LOG_TO_STDOUT'].present?
     logger           = ActiveSupport::Logger.new(STDOUT)
     logger.formatter = config.log_formatter
     config.logger    = ActiveSupport::TaggedLogging.new(logger)

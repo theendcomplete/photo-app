@@ -8,6 +8,23 @@ Rails.application.configure do
 
   # Do not eager load code on boot.
   config.eager_load = false
+  # config.action_mailer.delivery_method = :test
+  # config.action_mailer.default_url_options = {host: 'localhost', port: 3000}
+  #
+  # config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.smtp_settings = {
+  #     address: 'smtp.yandex.ru',
+  #     port: 587,
+  #     domain: 'nikkie.ru',
+  #     user_name: 'warlord@nikkie.ru',
+  #     password: 'Slayer123',
+  #     authentication: 'plain',
+  #     enable_starttls_auto: true
+  # }
+  #
+  # config.action_mailer.default_url_options = {:host => 'http://tec-photo-app.herokuapp.com'}
+  # config.action_mailer.perform_deliveries = true
+  # config.action_mailer.raise_delivery_errors = true
 
   # Show full error reports.
   config.consider_all_requests_local = true
@@ -18,7 +35,7 @@ Rails.application.configure do
 
     config.cache_store = :memory_store
     config.public_file_server.headers = {
-      'Cache-Control' => "public, max-age=#{2.days.seconds.to_i}"
+        'Cache-Control' => "public, max-age=#{2.days.seconds.to_i}"
     }
   else
     config.action_controller.perform_caching = false

@@ -21,3 +21,7 @@
 /yarn-error.log
 /.idea
 .byebug_history
+/config/environment.rb
+/config/environments/production.rb
+/config/environments/development.rb
+/config/initializers/stripe.rb
